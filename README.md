@@ -255,15 +255,15 @@ MIT License — see [`LICENSE`](LICENSE) for details.
 
 ## Credits & Contact
 
-**Built by [StarForge](YOUR_WEBSITE_HERE)**
+**Built by [StarForge]**
 > Turning AI complexity into business simplicity.
 
 | | |
 |---|---|
 | 🏢 **Agency** | StarForge AI Automation |
-| 👤 **Founder** | [Your Name] |
-| 🌐 **Website** | [YOUR_WEBSITE_HERE] |
-| 📧 **Contact** | [YOUR_EMAIL_HERE] |
+| 👤 **Founder** | Kenula Rathnayake |
+| 🌐 **Website** | [Currently Under Constructions] |
+| 📧 **Contact** | starforge.lk@gmail.com |
 | 💼 **Services** | AI Chatbots · Document Processing · Workflow Automation · Custom AI Systems |
 
 ---
