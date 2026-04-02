@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Team Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for Syntax -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="dashboard-wrapper">
+
+        <!-- THIN SIDEBAR -->
+        <nav class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-shapes logo-icon"></i>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" title="AI Team"><i class="fa-solid fa-house"></i></a>
+                <a href="#" class="nav-link" title="Notifications"><i class="fa-solid fa-bell"></i></a>
+                <a href="#" class="nav-link" title="Database"><i class="fa-solid fa-database"></i></a>
+                <a href="#" class="nav-link" title="Schedules"><i class="fa-solid fa-calendar"></i></a>
+                <a href="#" class="nav-link" title="Documents"><i class="fa-regular fa-file-lines"></i></a>
+            </div>
+            <div class="bottom-links">
+                <a href="#" class="nav-link" title="Settings"><i class="fa-solid fa-gear"></i></a>
+                <a href="#" class="nav-link" title="Profile"><i class="fa-regular fa-user"></i></a>
+            </div>
+        </nav>
+
+        <!-- MAIN LAYOUT (3 COLUMNS) -->
+        <main class="dashboard-main">
+            <!-- Top Header Breadcrumbs -->
+            <header class="top-nav">
+                <div class="breadcrumbs">
+                    <i class="fa-solid fa-house"></i> <span>Home</span> > <span>Main Workspace</span> > <strong>AI
+                        Team</strong>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i class="fa-solid fa-star"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </header>
+
+            <h1 class="page-title">AI Team Manager</h1>
+
+            <div class="columns-container">
+
+                <!-- COLUMN 1: THE AGENTS -->
+                <div class="col col-left">
+                    <!-- Coordinator Card -->
+                    <div class="card coordinator-card">
+                        <div class="card-header-banner gradient-teal"></div>
+                        <div class="card-body center-align">
+                            <div class="avatar-large avatar-bot">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <h2>Main Router</h2>
+                            <p class="subtitle">Manages communication, routing, and tool execution for the entire AI
+                                team.</p>
+                            <span class="status-badge"><span class="dot online"></span> Online (Qwen 3)</span>
+                        </div>
+                    </div>
+
+                    <!-- Specialized Agents List -->
+                    <div class="card agents-list-card">
+                        <div class="card-header">
+                            <h3>Specialized Agents</h3>
+                            <button class="icon-btn-small"><i class="fa-solid fa-gear"></i></button>
+                        </div>
+                        <p class="subtitle small">Agents refer to software entities that perform specific complex tasks
+                            via the Router.</p>
+
+                        <div class="agent-items">
+                            <div class="agent-item">
+                                <i class="fa-solid fa-code text-orange"></i>
+                                <span>Coding Designer</span>
+                                <div class="actions"><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                            <div class="agent-item">
+                                <i class="fa-solid fa-magnifying-glass-chart text-green"></i>
+                                <span>General Master</span>
+                                <div class="actions"><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                            <div class="agent-item">
+                                <i class="fa-solid fa-palette text-blue"></i>
+                                <span>Creative Engine</span>
+                                <div class="actions"><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                            <div class="agent-item">
+                                <i class="fa-solid fa-calculator text-purple"></i>
+                                <span>Math Logical</span>
+                                <div class="actions"><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-dashed">Add New +</button>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: INTERACTIVE HUB (CHAT & CONFIG) -->
+                <div class="col col-middle">
+                    <div class="card hub-card">
+                        <div class="hub-tabs">
+                            <button class="tab active" data-tab="chat">Interactive Chat</button>
+                            <button class="tab" data-tab="config">Configuration</button>
+                            <button class="tab" data-tab="logs">System Logs</button>
+                        </div>
+
+                        <!-- CHAT VIEW -->
+                        <div class="tab-content chat-view active-tab" id="chat-tab">
+                            <div class="chat-messages" id="chat-messages">
+                                <div class="message ai-message">
+                                    <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                                    <div class="msg-content">
+                                        <p>I am the Main AI Router. Give me a task or ask me a question, and I will
+                                            delegate it to the proper team member or execute system tools.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-wrapper">
+                                <div id="file-preview-area" class="file-preview-area hidden">
+                                    <i class="fa-solid fa-file"></i> <span id="preview-filename">file.txt</span>
+                                    <button id="clear-file" class="btn-clear"><i class="fa-solid fa-times"></i></button>
+                                </div>
+                                <form id="chat-form" class="chat-form">
+                                    <label class="btn-attach" title="Upload File">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <input type="file" id="file-input" class="hidden-input">
+                                    </label>
+                                    <textarea id="chat-input" placeholder="Give the AI team a task..."></textarea>
+                                    <button type="submit" class="btn-send"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: WORKSPACE & FILE MANAGER -->
+                <div class="col col-right">
+                    <div class="card workspace-card">
+                        <div class="card-header">
+                            <h3>Live Workspace Tracker</h3>
+                            <button class="icon-btn-small" id="refresh-files-btn"><i
+                                    class="fa-solid fa-rotate-right"></i></button>
+                        </div>
+                        <p class="subtitle small">Manage and view files created by the AI team directly on your system.
+                        </p>
+
+                        <!-- File Tree -->
+                        <div class="file-manager" id="file-manager">
+                            <!-- Files will be dynamically populated here -->
+                            <div class="file-item loading">Loading files...</div>
+                        </div>
+
+                        <!-- Code/File Viewer -->
+                        <div class="file-viewer-container">
+                            <div class="viewer-header">
+                                <span id="viewer-filename">No File Selected</span>
+                            </div>
+                            <div class="viewer-body">
+                                <pre><code id="viewer-code" class="language-plaintext">// Select a file from the list above to view its contents...</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
